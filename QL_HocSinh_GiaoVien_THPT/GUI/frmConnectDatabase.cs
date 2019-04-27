@@ -58,8 +58,6 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                     ActiveControl = txtTenCSDL;
                     return;
                 }
-
-
                 if (cbxChonTaiKhoan.SelectedIndex == 0)
                 {
                 }
@@ -67,9 +65,6 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 {
                   
                 }
-
-
-
                 if (true)
                 {
                     using (StreamWriter write = new StreamWriter("config"))
@@ -97,10 +92,5 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
 
         }
-
-        
-
-       
-
     }
 }

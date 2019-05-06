@@ -59,8 +59,10 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                     return;
                 }
 
+
                 DTO.ConnectString.ServerName = txtTenMayChu.Text.Trim();
                 DTO.ConnectString.DatabaseName = txtTenCSDL.Text.Trim();
+
 
                 if (cbxChonTaiKhoan.SelectedIndex == 0)
                 {
@@ -107,10 +109,5 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
 
         }
-
-        
-
-       
-
     }
 }

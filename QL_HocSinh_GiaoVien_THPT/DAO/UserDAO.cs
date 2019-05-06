@@ -8,7 +8,8 @@ namespace QL_HocSinh_GiaoVien_THPT.DAO
 {
     class UserDAO
     {
-        QLHSContex db = null;
+        private QLHSContex db = null;
+
         public UserDAO()
         {
             db = new QLHSContex();

@@ -17,8 +17,7 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
         }
 
         [Key]
-        [StringLength(10)]
-        public string MaGV { get; set; }
+        public int MaGV { get; set; }
 
         [StringLength(50)]
         public string TenGV { get; set; }
@@ -37,16 +36,15 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
 
         public int? Luong { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string MaMon { get; set; }
+        public int MaMon { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblGiangday> tblGiangday { get; set; }
 
         public virtual tblMonhoc tblMonhoc { get; set; }
-
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblLop> tblLop { get; set; }
+       
     }
 }

@@ -12,22 +12,16 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public tblLop()
         {
-            tblGiangday = new HashSet<tblGiangday>();
             tblHocSinh = new HashSet<tblHocSinh>();
         }
 
         [Key]
-        [StringLength(10)]
-        public string MaLop { get; set; }
+        public int MaLop { get; set; }
 
         [StringLength(50)]
         public string TenLop { get; set; }
 
-        [StringLength(10)]
-        public string GVCN { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<tblGiangday> tblGiangday { get; set; }
+        public int? GVCN { get; set; }
 
         public virtual tblGiaovien tblGiaovien { get; set; }
 

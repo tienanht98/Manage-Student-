@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using QL_HocSinh_GiaoVien_THPT.EF;
 namespace QL_HocSinh_GiaoVien_THPT.GUI
 {
     public partial class ucHocSinh : UserControl
@@ -19,11 +19,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         }
 
         bool themmoi = false;
-        public void Ketnoi()
-        {
-           
-        }
-
+    
 
         public void LockControl()
         {
@@ -55,8 +51,19 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void ucHocSinh_Load(object sender, EventArgs e)
         {
-            Ketnoi();
-            LockControl();
+           
+            
+            SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
+            conn.Open();
+            string sql = "select hs.MaHS , hs.TenHS, hs.GT , hs.NgaySinh,hs.DiaChi, hs.DanToc,hs.TonGiao,lop.TenLop from tblHocSinh hs join tblLop lop on hs.MaLop = lop.MaLop ";
+            SqlCommand comm = new SqlCommand(sql, conn);
+            SqlDataAdapter da = new SqlDataAdapter(comm);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+             
+            conn.Close();
+            dgvHS.DataSource = dt ;
+
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -85,7 +92,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtMaHS.Text == "" || txtTenHS.Text == "")
+            if ( txtTenHS.Text == "")
             {
                 MessageBox.Show("Xin mời nhập đầy đủ thông tin");
                 LockControl();
@@ -178,7 +185,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            Ketnoi();
+            
             LockControl();
             btnThem.Enabled = true;
             btnLuu.Enabled = true;

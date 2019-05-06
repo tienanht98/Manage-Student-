@@ -39,22 +39,28 @@ namespace QL_HocSinh_GiaoVien_THPT
                     pass = read.ReadLine();
                 }
 
+                DTO.ConnectString.ServerName = sname;
+                DTO.ConnectString.DatabaseName = dbname;
+
                 if (uname == "")
                 {
-                  
+                    DTO.ConnectString.WinAuthentication = true;
                 }
                 else
                 {
-                  
+                    DTO.ConnectString.WinAuthentication = false;
+                    DTO.ConnectString.UserName = uname;
+                    DTO.ConnectString.Password = pass;
                 }
-              
+                DTO.ConnectString.TaoChuoiKetNoi();
 
                 try
                 {
-                   // neu ket noi dc thi di form login
-                    if (true) 
+                    SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
+                    conn.Open();
+                    if (conn.State == ConnectionState.Open)
                     {
-                        GUI.frmLogin lg = new GUI.frmLogin();
+                        GUI.frmMain lg = new GUI.frmMain();
                         lg.ShowDialog();
                     }
                     else

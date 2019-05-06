@@ -9,14 +9,12 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
     [Table("tblGiangday")]
     public partial class tblGiangday
     {
-        [Required]
-        [StringLength(10)]
-        public string MaGV { get; set; }
+        public int MaGV { get; set; }
 
         [Key]
         [Column(Order = 0)]
-        [StringLength(10)]
-        public string MaLop { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaLop { get; set; }
 
         [Key]
         [Column(Order = 1)]
@@ -29,7 +27,5 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
         public int Tietday { get; set; }
 
         public virtual tblGiaovien tblGiaovien { get; set; }
-
-        public virtual tblLop tblLop { get; set; }
     }
 }

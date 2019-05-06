@@ -59,22 +59,32 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                     return;
                 }
 
+                DTO.ConnectString.ServerName = txtTenMayChu.Text.Trim();
+                DTO.ConnectString.DatabaseName = txtTenCSDL.Text.Trim();
 
                 if (cbxChonTaiKhoan.SelectedIndex == 0)
                 {
+                    DTO.ConnectString.WinAuthentication = true;
+                    DTO.ConnectString.TaoChuoiKetNoi();
                 }
                 else
                 {
-                  
+                    DTO.ConnectString.WinAuthentication = false;
+                    DTO.ConnectString.TaoChuoiKetNoi();
                 }
 
 
+                DTO.Connect.myconnect = new SqlConnection(DTO.ConnectString.StringConnect);
+                DTO.Connect.openConnect();
 
-                if (true)
+                if (DTO.Connect.myconnect.State == ConnectionState.Open)
                 {
                     using (StreamWriter write = new StreamWriter("config"))
                     {
-                       
+                        write.WriteLine(DTO.ConnectString.ServerName);
+                        write.WriteLine(DTO.ConnectString.DatabaseName);
+                        write.WriteLine(DTO.ConnectString.UserName);
+                        write.WriteLine(DTO.ConnectString.Password);
                     }
 
                     GUI.frmLogin lg = new GUI.frmLogin();
@@ -87,7 +97,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                     return;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

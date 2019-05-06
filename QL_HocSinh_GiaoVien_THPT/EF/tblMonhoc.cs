@@ -16,9 +16,10 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
         }
 
         [Key]
-        [StringLength(10)]
-        public string MaMon { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int MaMon { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string TenMon { get; set; }
 

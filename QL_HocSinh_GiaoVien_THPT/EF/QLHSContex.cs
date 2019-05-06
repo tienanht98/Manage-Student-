@@ -22,30 +22,9 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<tblGiangday>()
-                .Property(e => e.MaGV)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tblGiangday>()
-                .Property(e => e.MaLop)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tblGiaovien>()
-                .Property(e => e.MaGV)
-                .IsUnicode(false);
-
             modelBuilder.Entity<tblGiaovien>()
                 .Property(e => e.SDT)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<tblGiaovien>()
-                .Property(e => e.MaMon)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tblGiaovien>()
-                .HasMany(e => e.tblGiangday)
-                .WithRequired(e => e.tblGiaovien)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tblGiaovien>()
                 .HasMany(e => e.tblLop)
@@ -56,35 +35,9 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
                 .Property(e => e.MaHS)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<tblHocSinh>()
-                .Property(e => e.MaLop)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tblLop>()
-                .Property(e => e.MaLop)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tblLop>()
-                .Property(e => e.GVCN)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tblLop>()
-                .HasMany(e => e.tblGiangday)
-                .WithRequired(e => e.tblLop)
-                .WillCascadeOnDelete(false);
-
             modelBuilder.Entity<tblLop>()
                 .HasMany(e => e.tblHocSinh)
                 .WithRequired(e => e.tblLop)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<tblMonhoc>()
-                .Property(e => e.MaMon)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<tblMonhoc>()
-                .HasMany(e => e.tblGiaovien)
-                .WithRequired(e => e.tblMonhoc)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<tblPhanquyen>()
@@ -103,6 +56,11 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
             modelBuilder.Entity<tblUser>()
                 .Property(e => e.MaGV)
                 .IsUnicode(false);
+        }
+
+        internal object SqlQuery(string v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

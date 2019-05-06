@@ -32,9 +32,7 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
         [StringLength(50)]
         public string TonGiao { get; set; }
 
-        [Required]
-        [StringLength(10)]
-        public string MaLop { get; set; }
+        public int MaLop { get; set; }
 
         public virtual tblLop tblLop { get; set; }
     }

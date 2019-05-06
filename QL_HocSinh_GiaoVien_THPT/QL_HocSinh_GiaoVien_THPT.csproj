@@ -55,7 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\GiaoVienDAO.cs" />
+    <Compile Include="DAO\MonHocDAO.cs" />
     <Compile Include="DAO\UserDAO.cs" />
+    <Compile Include="DTO\Connect.cs" />
+    <Compile Include="DTO\ConnectString.cs" />
     <Compile Include="EF\QLHSContex.cs" />
     <Compile Include="EF\tblGiangday.cs" />
     <Compile Include="EF\tblGiaovien.cs" />
@@ -118,6 +122,8 @@
     <Compile Include="GUI\ucView.Designer.cs">
       <DependentUpon>ucView.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\ComboItem.cs" />
+    <Compile Include="Model\GiaoVienModel.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\frmConnectDatabase.resx">

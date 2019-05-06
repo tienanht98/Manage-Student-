@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Data;
+using QL_HocSinh_GiaoVien_THPT.EF;
 
 namespace QL_HocSinh_GiaoVien_THPT.GUI
 {
@@ -49,7 +49,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
             try
             {
-
+                QLHSContex db = new QLHSContex();
                 dvDuLieu = new DataView(dtDuLieu);
                 dvGiaoVien = new DataView(dtGiaoVien);
                 dvLop = new DataView(dtLop);
@@ -60,32 +60,32 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 // blind datasource
                 //dgvData.DataSource = new DataView(); ;
                 //this.dgvData.ClearSelection();
-                dgvData.DataSource = dvDuLieu;
+                dgvData.DataSource = db.tblGiangday.ToList();
 
 
-                cboGiaoVien.DataSource = dvGiaoVien;
-                cboGiaoVien.DisplayMember = "TenGV";
-                cboGiaoVien.ValueMember = "MaGV";
+                //cboGiaoVien.DataSource = dvGiaoVien;
+                //cboGiaoVien.DisplayMember = "TenGV";
+                //cboGiaoVien.ValueMember = "MaGV";
 
-                cboLop.DataSource = dvLop;
-                cboLop.DisplayMember = "TenLop";
-                cboLop.ValueMember = "MaLop";
+                //cboLop.DataSource = dvLop;
+                //cboLop.DisplayMember = "TenLop";
+                //cboLop.ValueMember = "MaLop";
 
-                cboXemGiaoVien.DataSource = dvXGiaoVien;
-                cboXemGiaoVien.DisplayMember = "TenGV";
-                cboXemGiaoVien.ValueMember = "MaGV";
+                //cboXemGiaoVien.DataSource = dvXGiaoVien;
+                //cboXemGiaoVien.DisplayMember = "TenGV";
+                //cboXemGiaoVien.ValueMember = "MaGV";
 
-                cboXemLop.DataSource = dvXLop;
-                cboXemLop.DisplayMember = "TenLop";
-                cboXemLop.ValueMember = "MaLop";
+                //cboXemLop.DataSource = dvXLop;
+                //cboXemLop.DisplayMember = "TenLop";
+                //cboXemLop.ValueMember = "MaLop";
 
-                cboThu.DataSource = dvThu;
-                cboThu.DisplayMember = "Ten";
-                cboThu.ValueMember = "ID";
+                //cboThu.DataSource = dvThu;
+                //cboThu.DisplayMember = "Ten";
+                //cboThu.ValueMember = "ID";
 
-                cboXemTheoThu.DataSource = dvXThu;
-                cboXemTheoThu.DisplayMember = "Ten";
-                cboXemTheoThu.ValueMember = "ID";
+                //cboXemTheoThu.DataSource = dvXThu;
+                //cboXemTheoThu.DisplayMember = "Ten";
+                //cboXemTheoThu.ValueMember = "ID";
 
             }
             catch (Exception ex)
@@ -98,16 +98,16 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         }
         private void bindingData()
         {
-            this.cboGiaoVien.DataBindings.Clear();
-            this.cboGiaoVien.DataBindings.Add("SelectedValue", dgvData.DataSource, "MaGV", true, DataSourceUpdateMode.Never);
-            this.cboGiaoVien.DataBindings.Add("Text", dgvData.DataSource, "TenGV", true, DataSourceUpdateMode.Never);
-            this.cboLop.DataBindings.Add("SelectedValue", dgvData.DataSource, "MaLop", true, DataSourceUpdateMode.Never);
-            this.cboLop.DataBindings.Add("Text", dgvData.DataSource, "TenLop", true, DataSourceUpdateMode.Never);
+            //this.cboGiaoVien.DataBindings.Clear();
+            //this.cboGiaoVien.DataBindings.Add("SelectedValue", dgvData.DataSource, "MaGV", true, DataSourceUpdateMode.Never);
+            //this.cboGiaoVien.DataBindings.Add("Text", dgvData.DataSource, "TenGV", true, DataSourceUpdateMode.Never);
+            //this.cboLop.DataBindings.Add("SelectedValue", dgvData.DataSource, "MaLop", true, DataSourceUpdateMode.Never);
+            //this.cboLop.DataBindings.Add("Text", dgvData.DataSource, "TenLop", true, DataSourceUpdateMode.Never);
 
-            this.cboThu.DataBindings.Add("SelectedValue", dgvData.DataSource, "idthu", true, DataSourceUpdateMode.Never);
-            this.cboThu.DataBindings.Add("Text", dgvData.DataSource, "Thu", true, DataSourceUpdateMode.Never);
+            //this.cboThu.DataBindings.Add("SelectedValue", dgvData.DataSource, "idthu", true, DataSourceUpdateMode.Never);
+            //this.cboThu.DataBindings.Add("Text", dgvData.DataSource, "Thu", true, DataSourceUpdateMode.Never);
 
-            this.txtTiet.DataBindings.Add("Text", dgvData.DataSource, "Tiet", true, DataSourceUpdateMode.Never);
+            //this.txtTiet.DataBindings.Add("Text", dgvData.DataSource, "Tiet", true, DataSourceUpdateMode.Never);
 
         }
 

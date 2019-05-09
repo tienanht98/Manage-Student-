@@ -18,6 +18,8 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
     public partial class ucGiaoVien : UserControl
     {
+
+        private GiaoVienDAO giaoVienDAO = new GiaoVienDAO();
        
         int dong = -1;
        
@@ -185,33 +187,33 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             show_cboMonhoc();            
         }
 
-        // Tìm Kiếm
-        private void btnTimKiem_Click_1(object sender, EventArgs e)
-        {
-            try
-            {
-                // Tìm kiếm theo mã
-                if (rdTKMa.Checked == true)
-                {
+        //// Tìm Kiếm
+        //private void btnTimKiem_Click_1(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        // Tìm kiếm theo mã
+        //        if (rdTKMa.Checked == true)
+        //        {
                     
-                }
-                // Tìm kiếm theo tên
-                else if (rdTKTen.Checked == true)
-                {
-                }
-                else
-                {
-                    MessageBox.Show(" Mời bạn chọn lại!!!!");
-                    return;
-                }
+        //        }
+        //        // Tìm kiếm theo tên
+        //        else if (rdTKTen.Checked == true)
+        //        {
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show(" Mời bạn chọn lại!!!!");
+        //            return;
+        //        }
 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
 
-            }
-        }
+        //    }
+        //}
 
         private void tlsRefresh_Click(object sender, EventArgs e)
         {
@@ -289,11 +291,11 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
             if (rdTKMa.Checked == true)
             {
-               
+                giaoVienDAO.searchModelBasic(rdTKMa.Text, txtTimKiem.Text, dgvGiaoVien);
             }
             else if (rdTKTen.Checked == true)
             {
-                
+                giaoVienDAO.searchModelBasic(rdTKTen.Text, txtTimKiem.Text, dgvGiaoVien);
             }
             else
             {

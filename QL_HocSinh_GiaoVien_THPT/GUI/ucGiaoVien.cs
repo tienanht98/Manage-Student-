@@ -61,7 +61,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
             SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
             conn.Open();
-            string sql = "Select giaovien.MaGV , giaovien.TenGV , giaovien.GT,giaovien.NgaySinh,giaovien.SDT,giaovien.DiaChi,giaovien.Luong , mon.TenMon from tblGiaovien giaovien join tblMonhoc mon on mon.MaMon = giaovien.MaMon";
+            string sql = "Select giaovien.MaGV , giaovien.TenGV , giaovien.GT,giaovien.NgaySinh,giaovien.SDT,giaovien.DiaChi,giaovien.Luong , mon.TenMon  from tblGiaovien giaovien join tblMonhoc mon on mon.MaMon = giaovien.MaMon";
             SqlCommand comm = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
@@ -266,6 +266,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 if (dgvGiaoVien.Rows[dong].Cells[7].Value.ToString() == cboMamon.GetItemText(cboMamon.Items[i]))
                 {
                     cboMamon.SelectedIndex = i;
+                    break;
                 }
             }
 

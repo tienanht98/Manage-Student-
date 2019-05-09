@@ -18,14 +18,14 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             InitializeComponent();
         }
 
-        bool themmoi = false;
+       
     
 
         public void LockControl()
         {
             txtMaHS.Enabled = false;
             txtTenHS.Enabled = false;
-            txtMaLp.Enabled = false;
+            cbmLop.Enabled = false;
             txtDT.Enabled = false;
             txtDC.Enabled = false;
             cboTG.Enabled = false;
@@ -34,7 +34,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         public void UnLockControl()
         {
             txtMaHS.Enabled = true;
-            txtMaLp.Enabled = true;
+            cbmLop.Enabled = true;
             txtDT.Enabled = true;
             txtTenHS.Enabled = true;
             txtDC.Enabled = true;
@@ -51,8 +51,14 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void ucHocSinh_Load(object sender, EventArgs e)
         {
-           
-            
+
+            loadHS();
+
+        }
+
+        private void loadHS()
+        {
+
             SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
             conn.Open();
             string sql = "select hs.MaHS , hs.TenHS, hs.GT , hs.NgaySinh,hs.DiaChi, hs.DanToc,hs.TonGiao,lop.TenLop from tblHocSinh hs join tblLop lop on hs.MaLop = lop.MaLop ";
@@ -60,23 +66,23 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             SqlDataAdapter da = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
             da.Fill(dt);
-             
-            conn.Close();
-            dgvHS.DataSource = dt ;
 
+            conn.Close();
+            dgvHS.DataSource = dt;
+            show_cbm_lop();
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            themmoi = true;
+           
             txtMaHS.Enabled = true;
             btnLuu.Enabled = true;
             btnThayDoi.Enabled = false;
             btnXoa.Enabled = false;
-           
-            
 
-            txtMaHS.Focus();
+
+
+            txtTenHS.Focus();
             UnLockControl();
             Setnull();
         }
@@ -100,27 +106,35 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             }
             else
             {
-                if (themmoi == true)
+
+                tblHocSinh tblHocSinh = new tblHocSinh();
+                tblHocSinh.MaHS = Convert.ToInt16( txtMaHS.Text);
+                tblHocSinh.TenHS = txtTenHS.Text;
+                if (rdbNam.Checked)
                 {
-                    try
-                    {
-                        
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    tblHocSinh.GT = "Nam";
                 }
-                else if (themmoi == false)
+                else
                 {
-                    try
-                    {
-                                           }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
+                    tblHocSinh.GT = "Nữ";
                 }
+                tblHocSinh.NgaySinh = dtpNgaySinh.Value;
+                tblHocSinh.DiaChi = txtDC.Text;
+                tblHocSinh.DanToc = txtDT.Text;
+                tblHocSinh.MaLop = (int)cbmLop.SelectedValue;
+                tblHocSinh.TonGiao = cboTG.SelectedItem.ToString();
+                QLHSContex db = new QLHSContex();
+
+
+                db.Entry(tblHocSinh).State = (tblHocSinh.MaHS == 0) ? System.Data.Entity.EntityState.Added : System.Data.Entity.EntityState.Modified;
+
+                
+
+
+                MessageBox.Show("Lưu thành công");
+                
+                db.SaveChanges();
+                loadHS();
             }
         }
 
@@ -134,13 +148,32 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 if (dgvHS.Rows[e.RowIndex].Cells["GT"].Value.ToString() == "Nam") rdbNam.Checked = true;
                 else rdbNu.Checked = true;
                 dtpNgaySinh.Text = dgvHS.CurrentRow.Cells["NgaySinh"].Value.ToString();
-                txtMaLp.Text = dgvHS.CurrentRow.Cells["MaLop"].Value.ToString();
+               // txtMaLp.Text = dgvHS.CurrentRow.Cells["MaLop"].Value.ToString();
                 txtDT.Text = dgvHS.CurrentRow.Cells["DanToc"].Value.ToString();
                 //Show_CboTG(dgvHS.CurrentRow.Cells["TonGiao"].Value.ToString());
                 cboTG.Text = dgvHS.CurrentRow.Cells["TonGiao"].Value.ToString();
                 txtDC.Text = dgvHS.CurrentRow.Cells["DiaChi"].Value.ToString();
                 cboTG.DataBindings.Clear();
                 cboTG.DataBindings.Add("Text", dgvHS.DataSource, "TonGiao");
+
+                SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
+                conn.Open();
+                string strSQL = "select * from tblLop where TenLop = '" + dgvHS.CurrentRow.Cells["TenLop"].Value.ToString() + "'";
+                DataTable dt = new DataTable();
+                SqlDataAdapter sqlDa = new SqlDataAdapter(strSQL, conn);
+                sqlDa.Fill(dt);
+                cbmLop.DataSource = dt;
+                cbmLop.ValueMember = "MaLop";
+                cbmLop.DisplayMember = "TenLop";
+                conn.Close();
+                for (int i = 0; i < cbmLop.Items.Count; i++)
+                {
+                    if (dgvHS.CurrentRow.Cells["TenLop"].Value.ToString() == cbmLop.GetItemText(cbmLop.Items[i]))
+                    {
+                        cbmLop.SelectedIndex = i;
+                        break;
+                    }
+                }
             }
         }
 
@@ -148,15 +181,30 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn xóa không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                try
-                {
-                   
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                QLHSContex db = new QLHSContex();
+                tblHocSinh tblHocSinh = new tblHocSinh();
+                tblHocSinh.MaHS = Convert.ToInt16(txtMaHS.Text);
+                db.Entry(tblHocSinh).State = System.Data.Entity.EntityState.Deleted;
+                db.SaveChanges();
+                MessageBox.Show("Xóa thành công!");
+                loadHS();
+
             }
+        }
+
+        private void show_cbm_lop()
+        {
+
+            SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
+            conn.Open();
+            string strSQL = "select * from tblLop";
+            DataTable dt = new DataTable();
+            SqlDataAdapter sqlDa = new SqlDataAdapter(strSQL, conn);
+            sqlDa.Fill(dt);
+            cbmLop.DataSource = dt;
+            cbmLop.DisplayMember = "TenLop";
+            cbmLop.ValueMember = "MaLop";
+            conn.Close();
         }
 
        

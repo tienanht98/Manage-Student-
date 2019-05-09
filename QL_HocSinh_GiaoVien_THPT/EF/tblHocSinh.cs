@@ -10,8 +10,7 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
     public partial class tblHocSinh
     {
         [Key]
-        [StringLength(50)]
-        public string MaHS { get; set; }
+        public int MaHS { get; set; }
 
         [Required]
         [StringLength(50)]

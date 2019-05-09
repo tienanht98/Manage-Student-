@@ -31,10 +31,6 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
                 .WithOptional(e => e.tblGiaovien)
                 .HasForeignKey(e => e.GVCN);
 
-            modelBuilder.Entity<tblHocSinh>()
-                .Property(e => e.MaHS)
-                .IsUnicode(false);
-
             modelBuilder.Entity<tblLop>()
                 .HasMany(e => e.tblHocSinh)
                 .WithRequired(e => e.tblLop)
@@ -56,11 +52,6 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
             modelBuilder.Entity<tblUser>()
                 .Property(e => e.MaGV)
                 .IsUnicode(false);
-        }
-
-        internal object SqlQuery(string v)
-        {
-            throw new NotImplementedException();
         }
     }
 }

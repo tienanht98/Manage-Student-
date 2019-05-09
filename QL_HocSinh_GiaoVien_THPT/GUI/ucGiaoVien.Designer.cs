@@ -82,6 +82,7 @@
             this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Luong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGiaoVien)).BeginInit();
             this.mnsIDU.SuspendLayout();
             this.grbThongTinGiaoVien.SuspendLayout();
@@ -116,7 +117,8 @@
             this.NgaySinh,
             this.SDT,
             this.DiaChi,
-            this.Luong});
+            this.Luong,
+            this.TenMon});
             this.dgvGiaoVien.Location = new System.Drawing.Point(36, 532);
             this.dgvGiaoVien.Margin = new System.Windows.Forms.Padding(6);
             this.dgvGiaoVien.Name = "dgvGiaoVien";
@@ -577,6 +579,12 @@
             this.Luong.HeaderText = "Lương";
             this.Luong.Name = "Luong";
             // 
+            // TenMon
+            // 
+            this.TenMon.DataPropertyName = "TenMon";
+            this.TenMon.HeaderText = "Tên Môn";
+            this.TenMon.Name = "TenMon";
+            // 
             // ucGiaoVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -650,5 +658,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
         private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Luong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenMon;
     }
 }

@@ -42,9 +42,8 @@ namespace QL_HocSinh_GiaoVien_THPT.EF
         public virtual ICollection<tblGiangday> tblGiangday { get; set; }
 
         public virtual tblMonhoc tblMonhoc { get; set; }
-        
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblLop> tblLop { get; set; }
-       
     }
 }

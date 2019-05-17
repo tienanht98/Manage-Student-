@@ -25,7 +25,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 kn.Open();
                 //SqlConnection kn = new SqlConnection(@"Data Source=ADMIN-PC\SQLSERVEREXPRESS;Initial Catalog=QL_GV_HS_THPT;Integrated Security=True");
                 //kn.Open();
-                string sql = "select * from tblUser";
+                string sql = "select u.Username ,u.Password, u.MaGV,pq.TenQuyen from tblUser u join tblPhanquyen pq on u.Quyen = pq.Quyen";
                 SqlCommand commandsql = new SqlCommand(sql, kn);//thuc thi cac cau lenh trong sql
                 SqlDataAdapter com = new SqlDataAdapter(commandsql);//van chuyen du lieu
                 DataTable table = new DataTable();//tao 1 bang ao trong he thong 

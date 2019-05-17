@@ -45,9 +45,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(434, 11);
+            this.label1.Location = new System.Drawing.Point(868, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 24);
+            this.label1.Size = new System.Drawing.Size(292, 44);
             this.label1.TabIndex = 0;
             this.label1.Text = "Thời Khóa Biểu";
             // 
@@ -59,25 +60,28 @@
             this.Tiet,
             this.TenGV,
             this.TenMon});
-            this.dgvTKB.Location = new System.Drawing.Point(66, 139);
+            this.dgvTKB.Location = new System.Drawing.Point(132, 267);
+            this.dgvTKB.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dgvTKB.Name = "dgvTKB";
-            this.dgvTKB.Size = new System.Drawing.Size(889, 360);
+            this.dgvTKB.Size = new System.Drawing.Size(1778, 692);
             this.dgvTKB.TabIndex = 9;
             // 
             // cbbLop
             // 
             this.cbbLop.FormattingEnabled = true;
-            this.cbbLop.Location = new System.Drawing.Point(102, 72);
+            this.cbbLop.Location = new System.Drawing.Point(204, 138);
+            this.cbbLop.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.cbbLop.Name = "cbbLop";
-            this.cbbLop.Size = new System.Drawing.Size(121, 21);
+            this.cbbLop.Size = new System.Drawing.Size(238, 33);
             this.cbbLop.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(71, 72);
+            this.label2.Location = new System.Drawing.Point(142, 138);
+            this.label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.Size = new System.Drawing.Size(48, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Lớp";
             // 
@@ -85,9 +89,10 @@
             // 
             this.btnXem.Image = global::QL_HocSinh_GiaoVien_THPT.Properties.Resources.find__1_;
             this.btnXem.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnXem.Location = new System.Drawing.Point(262, 72);
+            this.btnXem.Location = new System.Drawing.Point(524, 138);
+            this.btnXem.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnXem.Name = "btnXem";
-            this.btnXem.Size = new System.Drawing.Size(70, 33);
+            this.btnXem.Size = new System.Drawing.Size(140, 63);
             this.btnXem.TabIndex = 8;
             this.btnXem.Text = "Xem";
             this.btnXem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -102,7 +107,7 @@
             // 
             // Tiet
             // 
-            this.Tiet.DataPropertyName = "Tiet";
+            this.Tiet.DataPropertyName = "Tietday";
             this.Tiet.HeaderText = "Tiết";
             this.Tiet.Name = "Tiet";
             // 
@@ -122,7 +127,7 @@
             // 
             // ucThoiKhoaBieu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.dgvTKB);
@@ -130,8 +135,9 @@
             this.Controls.Add(this.cbbLop);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "ucThoiKhoaBieu";
-            this.Size = new System.Drawing.Size(1025, 513);
+            this.Size = new System.Drawing.Size(2050, 987);
             this.Load += new System.EventHandler(this.ucThoiKhoaBieu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTKB)).EndInit();
             this.ResumeLayout(false);

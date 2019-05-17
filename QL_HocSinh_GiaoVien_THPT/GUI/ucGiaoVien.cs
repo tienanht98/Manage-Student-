@@ -18,8 +18,6 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
     public partial class ucGiaoVien : UserControl
     {
-
-        private GiaoVienDAO giaoVienDAO = new GiaoVienDAO();
        
         int dong = -1;
        
@@ -63,7 +61,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
             SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
             conn.Open();
-            string sql = "Select giaovien.MaGV , giaovien.TenGV , giaovien.GT,giaovien.NgaySinh,giaovien.SDT,giaovien.DiaChi,giaovien.Luong , mon.TenMon  from tblGiaovien giaovien join tblMonhoc mon on mon.MaMon = giaovien.MaMon";
+            string sql = "Select giaovien.MaGV , giaovien.TenGV , giaovien.GT,giaovien.NgaySinh,giaovien.SDT,giaovien.DiaChi,giaovien.Luong , mon.TenMon from tblGiaovien giaovien join tblMonhoc mon on mon.MaMon = giaovien.MaMon";
             SqlCommand comm = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(comm);
             DataTable dt = new DataTable();
@@ -187,33 +185,33 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             show_cboMonhoc();            
         }
 
-        //// Tìm Kiếm
-        //private void btnTimKiem_Click_1(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        // Tìm kiếm theo mã
-        //        if (rdTKMa.Checked == true)
-        //        {
+        // Tìm Kiếm
+        private void btnTimKiem_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                // Tìm kiếm theo mã
+                if (rdTKMa.Checked == true)
+                {
                     
-        //        }
-        //        // Tìm kiếm theo tên
-        //        else if (rdTKTen.Checked == true)
-        //        {
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show(" Mời bạn chọn lại!!!!");
-        //            return;
-        //        }
+                }
+                // Tìm kiếm theo tên
+                else if (rdTKTen.Checked == true)
+                {
+                }
+                else
+                {
+                    MessageBox.Show(" Mời bạn chọn lại!!!!");
+                    return;
+                }
 
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
 
-        //    }
-        //}
+            }
+        }
 
         private void tlsRefresh_Click(object sender, EventArgs e)
         {
@@ -268,7 +266,6 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 if (dgvGiaoVien.Rows[dong].Cells[7].Value.ToString() == cboMamon.GetItemText(cboMamon.Items[i]))
                 {
                     cboMamon.SelectedIndex = i;
-                    break;
                 }
             }
 
@@ -291,11 +288,11 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
             if (rdTKMa.Checked == true)
             {
-                giaoVienDAO.searchModelBasic(rdTKMa.Text, txtTimKiem.Text, dgvGiaoVien);
+               
             }
             else if (rdTKTen.Checked == true)
             {
-                giaoVienDAO.searchModelBasic(rdTKTen.Text, txtTimKiem.Text, dgvGiaoVien);
+                
             }
             else
             {

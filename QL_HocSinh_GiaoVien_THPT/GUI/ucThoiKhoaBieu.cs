@@ -22,9 +22,19 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
             try
             {
-               
-               
-             }
+                SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
+                conn.Open();
+                //SqlCommand cmd = new SqlCommand("ThoiKhoaBieu", conn);
+                //cmd.CommandType = CommandType.StoredProcedure;
+                string sql = "SELECT gd.Thu, gd.Tietday, gv.TenGV, mh.TenMon FROM dbo.tblLop l, dbo.tblGiangday gd, dbo.tblGiaovien gv, dbo.tblMonhoc mh WHERE gd.MaLop = '" + cbbLop.SelectedValue + "' AND l.MaLop = gd.MaLop AND gd.MaGV = gv.MaGV AND gv.MaMon = mh.MaMon";
+                SqlCommand cmd = new SqlCommand(sql, conn);
+                //cmd.Parameters.AddWithValue("@Malop", cbbLop.ValueMember);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable tb = new DataTable();
+                da.Fill(tb);
+                dgvTKB.DataSource = tb;
+
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -35,8 +45,17 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
         {
             try
             {
-               
-           }
+                SqlConnection conn = new SqlConnection(DTO.ConnectString.StringConnect);
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("select MaLop, TenLop from tblLop", conn);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                cbbLop.DataSource = dt;
+                cbbLop.DisplayMember = "TenLop";
+                cbbLop.ValueMember = "MaLop";
+
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);

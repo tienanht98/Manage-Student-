@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QL_HocSinh_GiaoVien_THPT.EF;
 using System.Windows.Forms;
-
+using QL_HocSinh_GiaoVien_THPT.EF;
 namespace QL_HocSinh_GiaoVien_THPT.DAO
 {
     class GiaoVienDAO
@@ -22,7 +21,6 @@ namespace QL_HocSinh_GiaoVien_THPT.DAO
             return true;
 
         }
-
         public void searchModelBasic(string luaChon, string tuKhoa, DataGridView data)
         {
             // Truy vấn -> đổ dữ liệu vào DataGridView

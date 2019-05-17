@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using QL_HocSinh_GiaoVien_THPT.EF;
+using QL_HocSinh_GiaoVien_THPT.DAO;
 namespace QL_HocSinh_GiaoVien_THPT.GUI
 {
     public partial class ucHocSinh : UserControl
@@ -18,8 +19,8 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             InitializeComponent();
         }
 
-       
-    
+
+
 
         public void LockControl()
         {
@@ -74,7 +75,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-           
+
             txtMaHS.Enabled = true;
             btnLuu.Enabled = true;
             btnThayDoi.Enabled = false;
@@ -98,7 +99,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if ( txtTenHS.Text == "")
+            if (txtTenHS.Text == "")
             {
                 MessageBox.Show("Xin mời nhập đầy đủ thông tin");
                 LockControl();
@@ -108,7 +109,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             {
 
                 tblHocSinh tblHocSinh = new tblHocSinh();
-                tblHocSinh.MaHS = Convert.ToInt16( txtMaHS.Text);
+               
                 tblHocSinh.TenHS = txtTenHS.Text;
                 if (rdbNam.Checked)
                 {
@@ -124,15 +125,9 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 tblHocSinh.MaLop = (int)cbmLop.SelectedValue;
                 tblHocSinh.TonGiao = cboTG.SelectedItem.ToString();
                 QLHSContex db = new QLHSContex();
-
-
                 db.Entry(tblHocSinh).State = (tblHocSinh.MaHS == 0) ? System.Data.Entity.EntityState.Added : System.Data.Entity.EntityState.Modified;
-
-                
-
-
                 MessageBox.Show("Lưu thành công");
-                
+
                 db.SaveChanges();
                 loadHS();
             }
@@ -148,7 +143,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
                 if (dgvHS.Rows[e.RowIndex].Cells["GT"].Value.ToString() == "Nam") rdbNam.Checked = true;
                 else rdbNu.Checked = true;
                 dtpNgaySinh.Text = dgvHS.CurrentRow.Cells["NgaySinh"].Value.ToString();
-               // txtMaLp.Text = dgvHS.CurrentRow.Cells["MaLop"].Value.ToString();
+                // txtMaLp.Text = dgvHS.CurrentRow.Cells["MaLop"].Value.ToString();
                 txtDT.Text = dgvHS.CurrentRow.Cells["DanToc"].Value.ToString();
                 //Show_CboTG(dgvHS.CurrentRow.Cells["TonGiao"].Value.ToString());
                 cboTG.Text = dgvHS.CurrentRow.Cells["TonGiao"].Value.ToString();
@@ -207,12 +202,12 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             conn.Close();
         }
 
-       
+
         private void btnTimKiem_Click(object sender, EventArgs e)
         {
             try
             {
-              
+
 
             }
             catch (Exception ex)
@@ -228,12 +223,24 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void txtTimKiem_TextChanged(object sender, EventArgs e)
         {
-            btnTimKiem_Click(null, null);
+            //if (cboTimkiem.SelectedIndex == 0)
+            //{
+            //    giaoVienDAO.searchModelBasic(rdTKMa.Text, txtTimKiem.Text, dgvGiaoVien);
+            //}
+            //else if (cboTimkiem.SelectedIndex == 1)
+            //{
+            //    giaoVienDAO.searchModelBasic(rdTKTen.Text, txtTimKiem.Text, dgvGiaoVien);
+            //}
+            //else
+            //{
+            //    //MessageBox.Show(" Mời bạn chọn lại!!!!");
+            //    return;
+            //}
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
         {
-            
+
             LockControl();
             btnThem.Enabled = true;
             btnLuu.Enabled = true;

@@ -60,7 +60,7 @@ namespace QL_HocSinh_GiaoVien_THPT
                     conn.Open();
                     if (conn.State == ConnectionState.Open)
                     {
-                        GUI.frmMain lg = new GUI.frmMain();
+                        GUI.frmLogin lg = new GUI.frmLogin();
                         lg.ShowDialog();
                     }
                     else

@@ -45,12 +45,12 @@
             this.ucTimKiem = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ucRefresh = new System.Windows.Forms.Button();
-            this.Quyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pasword = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.txtTimKiem = new System.Windows.Forms.TextBox();
+            this.Username = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pasword = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MaGV = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quyen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -64,7 +64,7 @@
             this.label1.ForeColor = System.Drawing.Color.Red;
             this.label1.Location = new System.Drawing.Point(436, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(245, 31);
+            this.label1.Size = new System.Drawing.Size(477, 62);
             this.label1.TabIndex = 0;
             this.label1.Text = "Quản Lí Tài Khoản";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -78,7 +78,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(19, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 16);
+            this.label2.Size = new System.Drawing.Size(140, 30);
             this.label2.TabIndex = 1;
             this.label2.Text = "Username";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -87,7 +87,7 @@
             // 
             this.txtMaGV.Location = new System.Drawing.Point(102, 180);
             this.txtMaGV.Name = "txtMaGV";
-            this.txtMaGV.Size = new System.Drawing.Size(191, 20);
+            this.txtMaGV.Size = new System.Drawing.Size(191, 33);
             this.txtMaGV.TabIndex = 2;
             this.txtMaGV.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -99,7 +99,7 @@
             this.label3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label3.Location = new System.Drawing.Point(19, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 16);
+            this.label3.Size = new System.Drawing.Size(134, 30);
             this.label3.TabIndex = 1;
             this.label3.Text = "Password";
             this.label3.Click += new System.EventHandler(this.label2_Click);
@@ -108,7 +108,7 @@
             // 
             this.txtQuyen.Location = new System.Drawing.Point(102, 257);
             this.txtQuyen.Name = "txtQuyen";
-            this.txtQuyen.Size = new System.Drawing.Size(191, 20);
+            this.txtQuyen.Size = new System.Drawing.Size(191, 33);
             this.txtQuyen.TabIndex = 2;
             this.txtQuyen.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -139,7 +139,7 @@
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(19, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 16);
+            this.label4.Size = new System.Drawing.Size(90, 30);
             this.label4.TabIndex = 7;
             this.label4.Text = "MaGV";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -153,7 +153,7 @@
             this.label5.Location = new System.Drawing.Point(19, 257);
             this.label5.MaximumSize = new System.Drawing.Size(100, 100);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 16);
+            this.label5.Size = new System.Drawing.Size(93, 30);
             this.label5.TabIndex = 8;
             this.label5.Text = "Quyen";
             this.label5.Click += new System.EventHandler(this.label5_Click);
@@ -162,7 +162,7 @@
             // 
             this.txtUsername.Location = new System.Drawing.Point(102, 43);
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(191, 20);
+            this.txtUsername.Size = new System.Drawing.Size(191, 33);
             this.txtUsername.TabIndex = 9;
             this.txtUsername.TextChanged += new System.EventHandler(this.textBox3_TextChanged_1);
             // 
@@ -170,7 +170,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(102, 109);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(191, 20);
+            this.txtPassword.Size = new System.Drawing.Size(191, 33);
             this.txtPassword.TabIndex = 10;
             this.txtPassword.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
@@ -249,34 +249,6 @@
             this.ucRefresh.UseVisualStyleBackColor = false;
             this.ucRefresh.Click += new System.EventHandler(this.ucRefresh_Click);
             // 
-            // Quyen
-            // 
-            this.Quyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Quyen.DataPropertyName = "Quyen";
-            this.Quyen.HeaderText = "Quyen";
-            this.Quyen.Name = "Quyen";
-            // 
-            // MaGV
-            // 
-            this.MaGV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.MaGV.DataPropertyName = "MaGV";
-            this.MaGV.HeaderText = "MaGV";
-            this.MaGV.Name = "MaGV";
-            // 
-            // Pasword
-            // 
-            this.Pasword.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Pasword.DataPropertyName = "Password";
-            this.Pasword.HeaderText = "Password";
-            this.Pasword.Name = "Pasword";
-            // 
-            // Username
-            // 
-            this.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Username.DataPropertyName = "Username";
-            this.Username.HeaderText = "Username";
-            this.Username.Name = "Username";
-            // 
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
@@ -297,13 +269,41 @@
             // 
             this.txtTimKiem.Location = new System.Drawing.Point(944, 115);
             this.txtTimKiem.Name = "txtTimKiem";
-            this.txtTimKiem.Size = new System.Drawing.Size(100, 20);
+            this.txtTimKiem.Size = new System.Drawing.Size(100, 33);
             this.txtTimKiem.TabIndex = 18;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
+            // Username
+            // 
+            this.Username.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Username.DataPropertyName = "Username";
+            this.Username.HeaderText = "Username";
+            this.Username.Name = "Username";
+            // 
+            // Pasword
+            // 
+            this.Pasword.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Pasword.DataPropertyName = "Password";
+            this.Pasword.HeaderText = "Password";
+            this.Pasword.Name = "Pasword";
+            // 
+            // MaGV
+            // 
+            this.MaGV.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaGV.DataPropertyName = "MaGV";
+            this.MaGV.HeaderText = "MaGV";
+            this.MaGV.Name = "MaGV";
+            // 
+            // Quyen
+            // 
+            this.Quyen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Quyen.DataPropertyName = "TenQuyen";
+            this.Quyen.HeaderText = "Quyen";
+            this.Quyen.Name = "Quyen";
+            // 
             // ucTaiKhoan
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.txtTimKiem);
@@ -349,10 +349,10 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button ucRefresh;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox txtTimKiem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Username;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pasword;
         private System.Windows.Forms.DataGridViewTextBoxColumn MaGV;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quyen;
-        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }

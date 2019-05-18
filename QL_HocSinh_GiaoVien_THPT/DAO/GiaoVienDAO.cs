@@ -17,7 +17,7 @@ namespace QL_HocSinh_GiaoVien_THPT.DAO
         public bool Insert(tblGiaovien tblGiaovien)
         {
             db.tblGiaovien.Add(tblGiaovien);
-            db.SaveChanges();
+            //db.SaveChanges();
             return true;
 
         }

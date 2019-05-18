@@ -70,11 +70,11 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
             conn.Close();
 
 
-        }           
+        }
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if ( txtTen.Text == "")
+            if (txtMaGV.Text == "" || txtTen.Text == "" || txtSDT.Text == "" || txtLuong.Text == "" || txtDiaChi.Text == "")
             {
                 MessageBox.Show("Xin mời nhập đầy đủ thông tin");
                 Khoa_btn();

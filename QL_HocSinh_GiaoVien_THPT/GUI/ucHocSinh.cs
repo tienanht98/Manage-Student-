@@ -99,7 +99,7 @@ namespace QL_HocSinh_GiaoVien_THPT.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (txtTenHS.Text == "")
+            if (txtMaHS.Text == "" || txtTenHS.Text == "" || txtDT.Text == "" || txtDC.Text == "")
             {
                 MessageBox.Show("Xin mời nhập đầy đủ thông tin");
                 LockControl();
